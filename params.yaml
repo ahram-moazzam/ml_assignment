@@ -3,7 +3,7 @@ preprocess:
   seed: 42
 
 train:
-  dense_units: 128    # D4: change this (e.g. 256) and re-run dvc repro
+  dense_units: 256   # D4: change this (e.g. 256) and re-run dvc repro
   dropout_rate: 0.3
   learning_rate: 0.001
   epochs: 10
