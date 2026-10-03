@@ -2,3 +2,4 @@
     remote = gdrive_storage
 ['remote "gdrive_storage"']
     url = gdrive://16kRBrDudJ5ZjKdQcKZI8KX4YutivwBMe
+    gdrive_client_id = 1088720185261-5a8eigq8rfcrvo8r89s6pt33uksd1bjb.apps.googleusercontent.com
