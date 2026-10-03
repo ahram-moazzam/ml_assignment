@@ -9,9 +9,11 @@ OUT_DIR = os.path.join("data", "processed")
 
 
 def normalize(x):
-    """Normalization step (this is the function you edit for Part E)."""
-    return x.astype("float32") / 255.0
-
+    """Teammate: per-image min-max scaling."""
+    x = x.astype("float32")
+    mn = x.min(axis=(1, 2), keepdims=True)
+    mx = x.max(axis=(1, 2), keepdims=True)
+    return (x - mn) / (mx - mn + 1e-8)
 
 def main():
     with open("params.yaml") as f:
