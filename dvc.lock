@@ -23,8 +23,8 @@ stages:
       nfiles: 4
     - path: src/preprocess.py
       hash: md5
-      md5: 2e86a768b8ba6630f307ca99f1a4b187
-      size: 1505
+      md5: eada748e282f426d88d640a3c745cf0a
+      size: 1625
     params:
       params.yaml:
         preprocess.seed: 42
@@ -32,7 +32,7 @@ stages:
     outs:
     - path: data/processed
       hash: md5
-      md5: 19e07b0684b365c7732232348a6d2257.dir
+      md5: cafe47b66a318819e362e3afc9ad8d6c.dir
       size: 219590768
       nfiles: 6
   train:
@@ -40,13 +40,13 @@ stages:
     deps:
     - path: data/processed
       hash: md5
-      md5: 12be1216b23b003beee7cc6125a0222b.dir
+      md5: cafe47b66a318819e362e3afc9ad8d6c.dir
       size: 219590768
       nfiles: 6
     - path: src/train.py
       hash: md5
-      md5: e46a99bea692af6728c98bae28277bf8
-      size: 1677
+      md5: 37a13e5b37fe3efd2f40d7fd4ca77d8e
+      size: 1736
     params:
       params.yaml:
         train.batch_size: 64
@@ -58,15 +58,15 @@ stages:
     outs:
     - path: models
       hash: md5
-      md5: b34ce5e6239bf81b3db899f1efade11f.dir
-      size: 2467743
+      md5: bd05398397828d4a1f6b8ac5baebdada.dir
+      size: 2467730
       nfiles: 2
   evaluate:
     cmd: python src/evaluate.py
     deps:
     - path: data/processed/x_test.npy
       hash: md5
-      md5: b2ec522e81e966822712b8ecf0af1412
+      md5: d5b273c354e56b9059cfc56a30991a79
       size: 31360128
     - path: data/processed/y_test.npy
       hash: md5
@@ -74,18 +74,18 @@ stages:
       size: 10128
     - path: models/model.h5
       hash: md5
-      md5: 520e5edebec1bad661e1c257e8126ada
+      md5: 504f927acd716232db6345e5dfa0c6f5
       size: 2466904
     - path: src/evaluate.py
       hash: md5
-      md5: 7d3de7791a8643fdd8ff9172e2f68878
-      size: 1344
+      md5: e9f633f47820c5b9923669cff50b9509
+      size: 1386
     outs:
     - path: metrics.json
       hash: md5
-      md5: 748e6a6598b627a6a5c1aaaeb94bc2bc
+      md5: 1bdc2ca3273faa2452dd369f041599af
       size: 79
     - path: reports/confusion_matrix.png
       hash: md5
-      md5: d4752063b869d799b6dd9285d09c7deb
-      size: 73809
+      md5: 0f17ce2c915a36624a35c14af411b023
+      size: 73274

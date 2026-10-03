@@ -9,8 +9,11 @@ OUT_DIR = os.path.join("data", "processed")
 
 
 def normalize(x):
-    """Main: scale to [0,1], then standardize with dataset mean/std."""
-    x = x.astype("float32") / 255.0
+    """Merged: per-image min-max scaling, then dataset standardization."""
+    x = x.astype("float32")
+    mn = x.min(axis=(1, 2), keepdims=True)
+    mx = x.max(axis=(1, 2), keepdims=True)
+    x = (x - mn) / (mx - mn + 1e-8)
     return (x - 0.286) / 0.353
 
 def main():
