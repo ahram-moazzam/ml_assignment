@@ -9,9 +9,9 @@ OUT_DIR = os.path.join("data", "processed")
 
 
 def normalize(x):
-    """Normalization step (this is the function you edit for Part E)."""
-    return x.astype("float32") / 255.0
-
+    """Main: scale to [0,1], then standardize with dataset mean/std."""
+    x = x.astype("float32") / 255.0
+    return (x - 0.286) / 0.353
 
 def main():
     with open("params.yaml") as f:
